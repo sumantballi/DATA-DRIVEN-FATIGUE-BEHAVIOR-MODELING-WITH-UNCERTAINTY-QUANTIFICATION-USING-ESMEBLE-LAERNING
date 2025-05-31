@@ -1,6 +1,6 @@
 # DATA-DRIVEN-FATIGUE-BEHAVIOR-MODELING-WITH-UNCERTAINTY-QUANTIFICATION-USING-ESMEBLE-LAERNING
 
-**INTRODUCTION**
+**1. Introduction**
 
 Fatigue analysis is a crucial aspect of structural health and component longevity. In this study, we explore the use of ensemble-based regression models to predict fatigue-related mechanical responses and quantify uncertainty in the predictions. We evaluate three different data-splitting strategies:
 
@@ -12,13 +12,13 @@ Train-Validation-Test Split
 
 We use metrics including Pearson Correlation Coefficient (CC), R² Score, RMSE, MAE, Prediction Interval Coverage Probability (PICP), Median Prediction Interval Width (MPIW), and a Composite Metric to compare the robustness of each method.
 
-**METHODOLOGY**
+**2. Methodology**
 
-Model and Uncertainty Estimation
+**2.1 Model and Uncertainty Estimation**
 
 We used an ensemble of regressors with predictive intervals, specifically focusing on quantile-based uncertainty calibration. The ensemble is built using GradientBoostingRegressor with tuned hyperparameters for maximum depth and number of estimators.
 
-EVALUATION METRICS
+**2.2 Evaluation Metrics**
 
 Pearson CC: Measures linear correlation.
 
@@ -32,9 +32,9 @@ Interval Width: Represents the spread or uncertainty range.
 
 Composite Metric: A balanced score combining performance and uncertainty metrics.
 
-**EXPERIMENTAL SETUP**
+**3. Experimental Setup**
 
-DATA PREPROCESSING
+**3.1 Data Preprocessing**
 
 Features were standardized.
 
@@ -42,81 +42,29 @@ The target variable was normalized (if applicable).
 
 Outliers were retained to ensure generalization capability.
 
-APPROACH SUMMARY
+**3.2 Approach Summary**
 
-Approach
+ Approach                          | Splits Used                          | Tuning Done                          |
+|-----------------------------------|--------------------------------------|--------------------------------------|
+| Fatigue_Analysis_Cross_Validation | 5-Fold Cross-Validation (nruns=1)    | No tuning, just performance spread   |
+| Fatigue_Analysis_Test_Train       | 80% Train / 20% Test                 | No separate validation               |
+| Fatigue_Analysis_Train_Val_Test   | 70% Train / 15% Val / 15% Test       | Hyperparameter tuning on validation |
 
-Splits Used
+**4. Results and Analysis**
 
-Tuning Done
+**4.1 Performance Metrics by Approach**
 
-Fatigue_Analysis_Cross_Validation
+| Approach               | Composite Metric (Test) | Interval Width | Coverage (%) | Generalization                |
+|------------------------|--------------------------|----------------|---------------|-------------------------------|
+| Cross-Validation (avg) | 0.855                    | 1.358 (avg)    | 89.5 (avg)     | Robust but no tuning          |
+| Test-Train Split       | 0.827                    | 1.539          | 88.64          | Single split, no tuning       |
+| Train-Val-Test         | 0.939                    | 0.972          | 90.9           | Tuned, most reliable          |
 
-5-Fold Cross-Validation (nruns=1)
-
-No tuning, just performance spread
-
-Fatigue_Analysis_Test_Train
-
-80% Train / 20% Test
-
-No separate validation
-
-Fatigue_Analysis_Train_Val_Test
-
-70% Train / 15% Val / 15% Test
-
-Hyperparameter tuning on validation
-
-**RESULT AND ANALYSIS**
-
-Performance Metrics by Approach
-
-Approach
-
-Composite Metric (Test)
-
-Interval Width
-
-Coverage (%)
-
-Generalization
-
-Cross-Validation (avg)
-
-0.855
-
-1.358 (avg)
-
-89.5 (avg)
-
-Robust but no tuning
-
-Test-Train Split
-
-0.827
-
-1.539
-
-88.64
-
-Single split, no tuning
-
-Train-Val-Test
-
-0.939
-
-0.972
-
-90.9
-
-Tuned, most reliable
-
-Key Insights
+**4.2 Key Insights**
 
 The Train-Validation-Test split approach yields the best overall performance, thanks to targeted hyperparameter tuning. It balances prediction accuracy with tight, well-calibrated uncertainty estimates, making it the recommended strategy for real-world deployment.
 
-**CONCLUSION**
+**5. Conclusion**
 
 This study demonstrates that ensemble models with calibrated predictive intervals can achieve high accuracy in fatigue analysis. Among the evaluated approaches, the Train-Validation-Test strategy outperforms others in both predictive performance and uncertainty quantification. This highlights the importance of proper model validation and tuning when applying machine learning to critical engineering domains like fatigue behavior modeling.
 
