@@ -111,5 +111,6 @@ Key Insights
 The Train-Validation-Test split approach yields the best overall performance, thanks to targeted hyperparameter tuning. It balances prediction accuracy with tight, well-calibrated uncertainty estimates, making it the recommended strategy for real-world deployment.
 
 CONCLUSION
+
 This study demonstrates that ensemble models with calibrated predictive intervals can achieve high accuracy in fatigue analysis. Among the evaluated approaches, the Train-Validation-Test strategy outperforms others in both predictive performance and uncertainty quantification. This highlights the importance of proper model validation and tuning when applying machine learning to critical engineering domains like fatigue behavior modeling.
 
