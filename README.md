@@ -1,5 +1,7 @@
 # DATA-DRIVEN-FATIGUE-BEHAVIOR-MODELING-WITH-UNCERTAINTY-QUANTIFICATION-USING-ESMEBLE-LAERNING
 
+**INTRODUCTION**
+
 Fatigue analysis is a crucial aspect of structural health and component longevity. In this study, we explore the use of ensemble-based regression models to predict fatigue-related mechanical responses and quantify uncertainty in the predictions. We evaluate three different data-splitting strategies:
 
 Cross-Validation
@@ -9,6 +11,8 @@ Train-Test Split
 Train-Validation-Test Split
 
 We use metrics including Pearson Correlation Coefficient (CC), R² Score, RMSE, MAE, Prediction Interval Coverage Probability (PICP), Median Prediction Interval Width (MPIW), and a Composite Metric to compare the robustness of each method.
+
+**METHODOLOGY**
 
 Model and Uncertainty Estimation
 
@@ -27,6 +31,8 @@ Coverage (%): Percentage of targets falling within the predictive intervals.
 Interval Width: Represents the spread or uncertainty range.
 
 Composite Metric: A balanced score combining performance and uncertainty metrics.
+
+**EXPERIMENTAL SETUP**
 
 DATA PREPROCESSING
 
@@ -62,7 +68,7 @@ Fatigue_Analysis_Train_Val_Test
 
 Hyperparameter tuning on validation
 
-RESULT AND ANALYSIS
+**RESULT AND ANALYSIS**
 
 Performance Metrics by Approach
 
@@ -110,7 +116,16 @@ Key Insights
 
 The Train-Validation-Test split approach yields the best overall performance, thanks to targeted hyperparameter tuning. It balances prediction accuracy with tight, well-calibrated uncertainty estimates, making it the recommended strategy for real-world deployment.
 
-CONCLUSION
+**CONCLUSION**
 
 This study demonstrates that ensemble models with calibrated predictive intervals can achieve high accuracy in fatigue analysis. Among the evaluated approaches, the Train-Validation-Test strategy outperforms others in both predictive performance and uncertainty quantification. This highlights the importance of proper model validation and tuning when applying machine learning to critical engineering domains like fatigue behavior modeling.
+
+**REFERENCES**
+
+## 📚 References
+
+1. Chang, J., Basvoju, D., Vakanski, A., Charit, I., & Xian, M. (2025). *Predictive Modeling and Uncertainty Quantification of Fatigue Life in Metal Alloys using Machine Learning*. arXiv preprint [arXiv:2501.15057](https://arxiv.org/abs/2501.15057)
+
+2. Swetlana, S., Rout, A., & Singh, A. K. (2023). *Machine learning assisted interpretation of creep and fatigue life in titanium alloys*. [Materials Today: Proceedings](https://doi.org/10.1016/j.matpr.2023.11.117) *(Open Access)*
+
 
